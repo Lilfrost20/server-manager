@@ -16,11 +16,14 @@ public class Server {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(unique = true)
+
+    @Column(name = "ip_address", unique = true, nullable = false)
     private String ipAddress;
+
     private String name;
     private String memory;
     private String type;
+
     @Enumerated(EnumType.STRING)
     private Status status;
 

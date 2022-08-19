@@ -1,13 +1,8 @@
 package by.lilfrost.servermanager;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.context.TestConfiguration;
 
-@SpringBootTest
-class ServerManagerApplicationTests {
-
-    @Test
-    void contextLoads() {
-    }
+@TestConfiguration
+public class ServerManagerApplicationTests {
 
 }
