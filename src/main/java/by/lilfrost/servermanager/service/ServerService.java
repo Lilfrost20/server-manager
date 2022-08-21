@@ -23,6 +23,7 @@ public class ServerService {
     private final ServerRepository serverRepository;
     private final ServiceMapper serviceMapper;
 
+
     public ServerDto create(ServerDto server) {
         log.info("Creating new server: {}", server.getName());
         return Optional.of(server)

@@ -1,5 +1,6 @@
 package by.lilfrost.servermanager.model;
 
+import by.lilfrost.servermanager.converter.ServerStatusConverter;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,6 +25,7 @@ public class Server {
     private String memory;
     private String type;
 
+    @Convert(converter = ServerStatusConverter.class)
     @Enumerated(EnumType.STRING)
     private Status status;
 

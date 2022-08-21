@@ -12,7 +12,7 @@ import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
-@SpringBootTest(classes = ServerManagerApplicationTests.class)
+@SpringBootTest
 @Transactional
 @ActiveProfiles("test")
 @Testcontainers
