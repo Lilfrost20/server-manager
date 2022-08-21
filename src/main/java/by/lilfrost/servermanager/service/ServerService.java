@@ -21,15 +21,14 @@ import static java.util.stream.Collectors.toList;
 public class ServerService {
 
     private final ServerRepository serverRepository;
-    private final ServiceMapper serviceMapper;
 
 
     public ServerDto create(ServerDto server) {
         log.info("Creating new server: {}", server.getName());
         return Optional.of(server)
-                .map(serviceMapper::serverDtoToServer)
+                .map(ServiceMapper.INSTANCE::serverDtoToServer)
                 .map(serverRepository::save)
-                .map(serviceMapper::serverToServerDto)
+                .map(ServiceMapper.INSTANCE::serverToServerDto)
                 .orElseThrow(
                         () -> new ServerCreateErrorException("Error creating server %s"
                                 .formatted(server.getName())));
@@ -40,7 +39,7 @@ public class ServerService {
     public List<ServerDto> findAll() {
         log.info("Fetching all services");
         return serverRepository.findAll().stream()
-                .map(serviceMapper::serverToServerDto)
+                .map(ServiceMapper.INSTANCE::serverToServerDto)
                 .collect(toList());
     }
 
@@ -48,7 +47,7 @@ public class ServerService {
     public Optional<ServerDto> get(Long id) {
         log.info("Fetching server by id: {}", id);
         return serverRepository.findById(id)
-                .map(serviceMapper::serverToServerDto);
+                .map(ServiceMapper.INSTANCE::serverToServerDto);
     }
 
 
