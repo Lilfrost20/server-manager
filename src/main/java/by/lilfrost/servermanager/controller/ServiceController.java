@@ -16,6 +16,7 @@ import static org.springframework.http.HttpStatus.OK;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/servers")
+@CrossOrigin(origins = "http://localhost:4200")
 public class ServiceController {
 
     private final ServerService serverService;
