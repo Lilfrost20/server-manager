@@ -5,7 +5,7 @@ import by.lilfrost.servermanager.model.Server;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-@Mapper()
+@Mapper
 public interface ServiceMapper {
 
     ServiceMapper INSTANCE = Mappers.getMapper(ServiceMapper.class);
