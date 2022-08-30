@@ -6,6 +6,7 @@ spring:
     driver-class-name: org.postgresql.Driver
   jpa:
     open-in-view: false
+    generate-ddl: false
 server:
   error:
     include-message: always
