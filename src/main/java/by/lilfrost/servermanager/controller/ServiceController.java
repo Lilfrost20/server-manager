@@ -4,6 +4,8 @@ import by.lilfrost.servermanager.dto.ServerDto;
 import by.lilfrost.servermanager.service.ServerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,8 +24,8 @@ public class ServiceController {
     private final ServerService serverService;
 
     @GetMapping
-    public ResponseEntity<List<ServerDto>> getAll() {
-        return new ResponseEntity<>(serverService.findAll(), OK);
+    public ResponseEntity<Page<ServerDto>> getAll(Pageable pageable) {
+        return new ResponseEntity<>(serverService.findAll(pageable), OK);
     }
 
     @GetMapping("/{id}")
