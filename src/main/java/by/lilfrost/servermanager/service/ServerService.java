@@ -6,11 +6,16 @@ import by.lilfrost.servermanager.repository.ServerRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import by.lilfrost.servermanager.mapper.ServiceMapper;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.nio.file.Path;
 import java.util.List;
 import java.util.Optional;
+import java.util.Random;
+import java.util.random.RandomGenerator;
 
 import static java.util.stream.Collectors.toList;
 
@@ -36,11 +41,10 @@ public class ServerService {
 
     //Need refactor to pageable
     @Transactional(readOnly = true)
-    public List<ServerDto> findAll() {
+    public Page<ServerDto> findAll(Pageable pageable) {
         log.info("Fetching all services");
-        return serverRepository.findAll().stream()
-                .map(ServiceMapper.INSTANCE::serverToServerDto)
-                .collect(toList());
+        return serverRepository.findAll(pageable)
+                .map(ServiceMapper.INSTANCE::serverToServerDto);
     }
 
     @Transactional(readOnly = true)
@@ -60,7 +64,12 @@ public class ServerService {
                 }).orElse(false);
     }
 
+
     private String setServerImageUrl() {
-        return null;
+        int minValue = 1;
+        int maxValue = 4;
+        int result = (int) (Math.random()*(maxValue-minValue+1)+minValue);
+        Path path = Path.of("resources", "static", "images", "server%s.png".formatted(result));
+        return path.toString();
     }
 }
