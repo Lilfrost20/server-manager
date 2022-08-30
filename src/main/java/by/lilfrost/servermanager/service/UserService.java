@@ -18,9 +18,9 @@ public class UserService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return userRepository.findUserByUserName(username)
+        return userRepository.findUserByUsername(username)
                 .map(user -> new User(
-                        user.getUserName(),
+                        user.getUsername(),
                         user.getPassword(),
                         Collections.singleton(user.getRole())
                 ))
