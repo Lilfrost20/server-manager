@@ -22,5 +22,4 @@ public class ServerDto {
     private String memory;
     private String type;
     private Status status;
-    private String imagePath;
 }

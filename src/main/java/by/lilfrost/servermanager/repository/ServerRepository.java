@@ -10,6 +10,4 @@ import java.util.Optional;
 @Repository
 public interface ServerRepository extends JpaRepository<Server, Long> {
 
-    @Query("select s from Server s where s.ipAddress = :ipAddress")
-    Optional<Server> findByIpAddress(String ipAddress);
 }

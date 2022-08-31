@@ -26,8 +26,4 @@ public class Server {
 
     @Enumerated(EnumType.STRING)
     private Status status;
-
-    @Column(name = "image_path", nullable = false)
-    private String imagePath;
-
 }

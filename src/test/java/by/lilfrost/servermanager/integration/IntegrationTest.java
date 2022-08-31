@@ -20,7 +20,6 @@ public abstract class IntegrationTest {
 
     @Container
     private static final JdbcDatabaseContainer CONTAINER = new PostgreSQLContainer("postgres:14-alpine")
-            .withInitScript("sql/init.sql")
             .withDatabaseName("server_manager")
             .withUsername("postgres")
             .withPassword("postgres");
