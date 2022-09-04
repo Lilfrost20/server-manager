@@ -39,7 +39,6 @@ public class ServerService {
                                 .formatted(server.getName())));
     }
 
-    //Need refactor to pageable
     @Transactional(readOnly = true)
     public Page<ServerDto> findAll(Pageable pageable) {
         log.info("Fetching all services");

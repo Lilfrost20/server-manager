@@ -4,9 +4,20 @@ spring:
     username: postgres
     password: postgres
     driver-class-name: org.postgresql.Driver
+
   jpa:
     open-in-view: false
     generate-ddl: false
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            clientId: 137153394222-d5lsi6bmsacelaojgj7oim2vqf9tiqin.apps.googleusercontent.com
+            clientSecret: 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
+
 server:
   error:
     include-message: always
+  port: 8080
